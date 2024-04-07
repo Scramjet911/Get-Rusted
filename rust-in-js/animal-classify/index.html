@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Processing</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Image Processing</h1>
+  <div class="images-container">
+    <div class="image-container">
+      <input type="file" id="imageInput" accept="image/*">
+      <label for="imageInput">Select Image</label>
+    </div>
+    <div class="image-container">
+      <button class="process-btn">Process Image</button>
+    </div>
+  </div>
+  <div class="images-container">
+    <div class="image-container">
+      <h2>Selected Image</h2>
+      <img id="selectedImage" src="#" alt="Selected Image">
+    </div>
+    <div class="image-container">
+      <h2>Processed Image</h2>
+      <img id="processedImage" src="#" alt="Processed Image">
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import init, {classify_image} from '../pkg/animal_classify.js';
+
+/*  init().then(() => {
+    classify_image();
+  })
+*/
+  document.getElementById('imageInput').addEventListener('change', function(event) {
+    var selectedImage = document.getElementById('selectedImage');
+    var processedImage = document.getElementById('processedImage');
+    var file = event.target.files[0];
+    var buffer_reader = new FileReader();
+    var url_reader = new FileReader();
+    var processed_buffer;
+
+    buffer_reader.onload = function(event) {
+      var image_buffer = new Uint8Array(buffer_reader.result)
+      var processedDataURL = classify_image(img);
+    }
+
+    if (file) {
+      buffer_reader.readAsArrayBuffer(file);
+      selectedImage.src = URL.createObjectURL(file);
+    }
+  });
+</script>
+
+</body>
+</html>

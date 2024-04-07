@@ -1,0 +1,79 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 1000px;
+  width: 100%;
+  margin: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0 0 20px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+label {
+  background-color: #3f51b5;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+label:hover {
+  background-color: #2c3e50;
+}
+
+#selectedImage,
+#processedImage {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.images-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-container {
+  flex-basis: 45%;
+}
+
+.image-container h2 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.process-btn {
+  background-color: #3f51b5;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: background-color 0.3s;
+  font-size: 18px;
+  margin: 0 0 10px;
+}

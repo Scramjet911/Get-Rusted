@@ -1,0 +1,14 @@
+[package]
+name = "animal-classify"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+image = "0.25.1"
+wasi-nn = "0.6.0"
+wasm-bindgen = "0.2.92"
