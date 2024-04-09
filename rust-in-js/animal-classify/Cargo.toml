@@ -12,3 +12,9 @@ crate-type = ["cdylib", "rlib"]
 image = "0.25.1"
 wasi-nn = "0.6.0"
 wasm-bindgen = "0.2.92"
+# web-sys = "0.3.69"
+
+
+[dependencies.web-sys]
+version = "0.3.69"
+features = ["console"]

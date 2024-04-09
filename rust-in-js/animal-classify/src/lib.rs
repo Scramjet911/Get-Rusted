@@ -1,43 +1,69 @@
 use image::io::Reader;
 use image::DynamicImage;
-use std::io::Cursor;
+use std::process::exit;
 use std::result::Result;
+use std::{any::Any, io::Cursor};
 use wasi_nn::{ExecutionTarget, GraphBuilder, GraphEncoding, TensorType};
 use wasm_bindgen::prelude::*;
+use web_sys;
+
+// A macro to provide `println!(..)`-style syntax for `console.log` logging.
+macro_rules! log {
+    ( $( $t:tt )* ) => {
+        web_sys::console::log_1(&format!( $( $t )* ).into());
+    }
+}
 
 #[wasm_bindgen]
 pub fn classify_image(data: Vec<u8>) -> Result<String, JsError> {
-    // let buf = image::load_from_memory_with_format(&data, image::ImageFormat::Jpeg);
+    let buf = image::load_from_memory_with_format(&data, image::ImageFormat::Jpeg);
+    log!("It's working?");
     let model_data: &[u8] =
         include_bytes!("../models/mobilenet_v1_1.0_224/mobilenet_v1_1.0_224_quant.tflite");
     let labels = include_str!("../models/mobilenet_v1_1.0_224/labels_mobilenet_quant_v1_224.txt");
-    let graph = GraphBuilder::new(GraphEncoding::TensorflowLite, ExecutionTarget::CPU)
-        .build_from_bytes(&[model_data])?;
-    let mut ctx = graph.init_execution_context()?;
+    let graph_res = GraphBuilder::new(GraphEncoding::TensorflowLite, ExecutionTarget::CPU)
+        .build_from_bytes(&[model_data]);
+    let go = match graph_res {
+        Ok(res) => {
+            log!("{}", res.to_string());
+            res
+        }
+        Err(err) => {
+            log!("{}", err);
+            exit(0);
+        }
+    };
+    // let mut ctx = graph.init_execution_context()?;
 
-    let tensor_data = image_to_tensor(&data, 224, 224);
-    ctx.set_input(0, TensorType::U8, &[1, 224, 224, 3], &tensor_data)?;
+    // let tensor_data = image_to_tensor(&data, 224, 224);
+    // ctx.set_input(0, TensorType::U8, &[1, 224, 224, 3], &tensor_data)?;
 
-    // Execute the inference.
-    ctx.compute()?;
+    // log!("part 2{}", String::from_utf8_lossy(model_data));
+    // log!("{}", labels);
 
-    let mut output_buffer = vec![0u8; labels.lines().count()];
-    _ = ctx.get_output(0, &mut output_buffer)?;
+    // log!("{}", ctx.to_string());
 
-    // Sort the result with the highest probability result first
-    let results = sort_results(&output_buffer);
-    /*
-    for r in results.iter() {
-        println!("results: {} {}", r.0, r.1);
-    }
-    */
-    // The first result's first element points to the labels position
-    let class_name = labels.lines().nth(results[0].0).unwrap_or("Unknown");
-    println!("result: {} {}", class_name, results[0].1);
+    // // Execute the inference.
+    // ctx.compute()?;
+
+    // let mut output_buffer = vec![0u8; labels.lines().count()];
+    // _ = ctx.get_output(0, &mut output_buffer)?;
+
+    // // Sort the result with the highest probability result first
+    // let results = sort_results(&output_buffer);
+
+    // for r in results.iter() {
+    //     println!("results: {} {}", r.0, r.1);
+    // }
+
+    // // The first result's first element points to the labels position
+    // let class_name = labels.lines().nth(results[0].0).unwrap_or("Unknown");
+    // println!("result: {} {}", class_name, results[0].1);
 
     Ok(format!(
         "{} is detected with {}/255 confidence",
-        class_name, results[0].1
+        1,
+        2 // class_name, results[0].1
     ))
 }
 

@@ -31,32 +31,7 @@
   </div>
 </div>
 
-<script type="module">
-  import init, {classify_image} from '../pkg/animal_classify.js';
-
-/*  init().then(() => {
-    classify_image();
-  })
-*/
-  document.getElementById('imageInput').addEventListener('change', function(event) {
-    var selectedImage = document.getElementById('selectedImage');
-    var processedImage = document.getElementById('processedImage');
-    var file = event.target.files[0];
-    var buffer_reader = new FileReader();
-    var url_reader = new FileReader();
-    var processed_buffer;
-
-    buffer_reader.onload = function(event) {
-      var image_buffer = new Uint8Array(buffer_reader.result)
-      var processedDataURL = classify_image(img);
-    }
-
-    if (file) {
-      buffer_reader.readAsArrayBuffer(file);
-      selectedImage.src = URL.createObjectURL(file);
-    }
-  });
-</script>
+<script type="module" src="script.js"></script>
 
 </body>
 </html>
