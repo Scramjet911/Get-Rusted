@@ -1,0 +1,30 @@
+[package]
+name = "wasmedge_hyper_server_tflite"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "wasmedge_hyper_server_tflite"
+path = "src/main.rs"
+
+[dependencies]
+hyper_wasi = { version = "0.15", features = ["full"] }
+tokio_wasi = { version = "1", features = [
+  "rt",
+  "macros",
+  "net",
+  "time",
+  "io-util",
+] }
+image = { version = "0.25.1", default-features = false, features = [
+  "gif",
+  "jpeg",
+  "ico",
+  "png",
+  "tiff",
+  "webp",
+  "bmp",
+] }
+wasi-nn = "0.6.0"
+anyhow = "1.0"
+image2tensor = "0.3.1"
