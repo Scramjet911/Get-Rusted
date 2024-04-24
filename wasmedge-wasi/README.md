@@ -1,6 +1,10 @@
 # TFLite server example
 
-## Prequsites
+Copied from [here](https://github.com/WasmEdge/wasmedge_hyper_demo/tree/main/server-tflite)
+
+## Without Docker
+
+### Prequsites
 
 In order to run this example, you will first install WasmEdge with Tensorflow Lite plugin:
 
@@ -21,19 +25,19 @@ mv libtensorflowlite_c.so ~/.wasmedge/lib
 mv libtensorflowlite_flex.so ~/.wasmedge/lib
 ```
 
-## Build
+### Build
 
 ```
 cargo build --target wasm32-wasi --release
 ```
 
-## Run
+### Run
 
 ```
 wasmedge target/wasm32-wasi/release/wasmedge_hyper_server_tflite.wasm
 ```
 
-## Test
+### Test
 
 Run the following from another terminal.
 
@@ -41,3 +45,5 @@ Run the following from another terminal.
 $ curl http://localhost:8080/classify -X POST --data-binary "@grace_hopper.jpg"
 military uniform is detected with 206/255 confidence
 ```
+
+## With Docker
