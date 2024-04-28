@@ -17,7 +17,7 @@ COPY src ./src
 # Build the Wasm binary
 RUN cargo build --target wasm32-wasi --release
 
-FROM --platform=$BUILDPLATFORM ubuntu
+FROM --platform=$BUILDPLATFORM ubuntu:22.04
 
 SHELL ["/bin/bash", "-c"]
 COPY --link --from=build /src/target/wasm32-wasi/release/wasmedge_hyper_server_tflite.wasm /server.wasm

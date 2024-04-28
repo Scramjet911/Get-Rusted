@@ -47,3 +47,24 @@ military uniform is detected with 206/255 confidence
 ```
 
 ## With Docker
+
+### Build
+```
+docker buildx build --platform wasm -t wasmedge_tflite .
+```
+
+### Run
+```
+docker run -p 3001:8080 --platform=wasm wasmedge_tflite
+```
+
+### Test
+
+```
+$ curl http://localhost:3001/classify -X POST --data-binary "@grace_hopper.jpg"
+military uniform is detected with 206/255 confidence
+```
+It "should" work if docker doesn't mess up the platform build. Platform was `wasi/wasm` earlier but it broke in a build so now tried `wasm` found from [this](https://github.com/deislabs/containerd-wasm-shims/issues/87) github issue and it works...🔥🔥
+
+#### TODO
+- Make docker slim image

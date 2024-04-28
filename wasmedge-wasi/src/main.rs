@@ -9,9 +9,9 @@ use std::net::SocketAddr;
 use std::result::Result;
 use wasi_nn::{ExecutionTarget, GraphBuilder, GraphEncoding, TensorType};
 
-fn print_type_of<T>(_: &T) {
-    println!("{}", std::any::type_name::<T>())
-}
+// fn print_type_of<T>(_: &T) {
+//     println!("{}", std::any::type_name::<T>())
+// }
 /// This is our service handler. It receives a Request, routes on its
 /// path, and returns a Future of a Response.
 async fn classify(req: Request<Body>) -> Result<Response<Body>, anyhow::Error> {
@@ -90,17 +90,17 @@ fn sort_results(buffer: &[u8]) -> Vec<InferenceResult> {
 
 // Take the image data, resize it to height x width, and then convert
 // the pixel precision to FP32. The resulting BGR pixel vector is then returned.
-fn image_to_tensor(raw_data: &[u8], height: u32, width: u32) -> Vec<u8> {
-    let reader = Reader::new(Cursor::new(raw_data))
-        .with_guessed_format()
-        .expect("Cursor io never fails");
-    let pixels = reader.decode().unwrap();
-    let dyn_img: DynamicImage = pixels.resize_exact(width, height, image::imageops::Triangle);
-    let bgr_img = dyn_img.to_rgb8();
-    // Get an array of the pixel values
-    let raw_u8_arr: &[u8] = &bgr_img.as_raw()[..];
-    return raw_u8_arr.to_vec();
-}
+// fn image_to_tensor(raw_data: &[u8], height: u32, width: u32) -> Vec<u8> {
+//     let reader = Reader::new(Cursor::new(raw_data))
+//         .with_guessed_format()
+//         .expect("Cursor io never fails");
+//     let pixels = reader.decode().unwrap();
+//     let dyn_img: DynamicImage = pixels.resize_exact(width, height, image::imageops::Triangle);
+//     let bgr_img = dyn_img.to_rgb8();
+//     // Get an array of the pixel values
+//     let raw_u8_arr: &[u8] = &bgr_img.as_raw()[..];
+//     return raw_u8_arr.to_vec();
+// }
 
 // A wrapper for class ID and match probabilities.
 #[derive(Debug, PartialEq)]
