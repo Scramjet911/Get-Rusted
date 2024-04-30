@@ -25,7 +25,7 @@ async fn classify(req: Request<Body>) -> Result<Response<Body>, anyhow::Error> {
     match (req.method(), req.uri().path()) {
         // Serve some instructions at /
         (&Method::GET, "/") => Ok(Response::new(Body::from(
-            "Try POSTing data to /classify such as: `curl http://localhost:3000/classify -X POST --data-binary '@grace_hopper.jpg'`",
+            "Try POSTing data to /classify such as: `curl http://localhost:3001/classify -X POST --data-binary '@grace_hopper.jpg'`",
         ))),
 
         (&Method::POST, "/classify") => {
