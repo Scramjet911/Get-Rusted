@@ -68,3 +68,7 @@ It "should" work if docker doesn't mess up the platform build. Platform was `was
 
 #### TODO
 - ~~Make docker slim image~~ Docker slim does not support wasm platform as of now
+
+
+This actually goes against what wasmedge is used for. It is supposed to be a lightweight runtime for deploying backend/LLM's.
+But since docker support for wasmedge with tensorflow plugin is not available, need to do it this way.

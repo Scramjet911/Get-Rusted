@@ -1,0 +1,251 @@
+{
+  "version": "1.1",
+  "engine": "linux/amd64|Transformer|1.40.11|1b271555882eacdfb4e6598d6d0552e9b9b1449b|2024-02-02_01:36:22PM",
+  "containerized": false,
+  "host_distro": {
+    "name": "Ubuntu",
+    "version": "22.04",
+    "display_name": "Ubuntu 22.04.4 LTS"
+  },
+  "type": "build",
+  "state": "error",
+  "error": "optimized.image.build.error",
+  "target_reference": "scramjet911/wasmedge-tflite",
+  "system": {
+    "type": "",
+    "release": "",
+    "distro": {
+      "name": "",
+      "version": "",
+      "display_name": ""
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": ""
+    },
+    "size": 0,
+    "size_human": "",
+    "create_time": "",
+    "docker_version": "",
+    "architecture": "",
+    "container_entry": {
+      "exe_path": ""
+    }
+  },
+  "minified_image_size": 0,
+  "minified_image_size_human": "",
+  "minified_image": "",
+  "minified_image_id": "",
+  "minified_image_digest": "",
+  "minified_image_has_data": false,
+  "minified_by": 0,
+  "artifact_location": "",
+  "container_report_name": "",
+  "seccomp_profile_name": "",
+  "apparmor_profile_name": "",
+  "image_stack": [
+    {
+      "is_top_image": true,
+      "id": "sha256:6f31ea3347278a66a6393785737c1ddbe9ce70d1e1a09f7e1a73ed33522b7817",
+      "full_name": "wasmedge_tflite:latest",
+      "repo_name": "wasmedge_tflite",
+      "version_tag": "latest",
+      "raw_tags": [
+        "wasmedge_tflite:latest",
+        "scramjet911/wasmedge-tflite:latest"
+      ],
+      "create_time": "2024-04-26T07:05:15Z",
+      "new_size": 553569777,
+      "new_size_human": "554 MB",
+      "instructions": [
+        {
+          "type": "ARG",
+          "time": "2024-04-17T17:56:33Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "RELEASE",
+          "command_snippet": "ARG RELEASE",
+          "command_all": "ARG RELEASE",
+          "inst_set_time_bucket": "2024-04-17T23:15:00+05:30",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "ARG",
+          "time": "2024-04-17T17:56:33Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "LAUNCHPAD_BUILD_ARCH",
+          "command_snippet": "ARG LAUNCHPAD_BUILD_ARCH",
+          "command_all": "ARG LAUNCHPAD_BUILD_ARCH",
+          "inst_set_time_bucket": "2024-04-17T23:15:00+05:30",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "LABEL",
+          "time": "2024-04-17T17:56:33Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "org.opencontainers.image.ref.name=ubuntu",
+          "command_snippet": "LABEL org.opencontainers.image.ref.name=ubun...",
+          "command_all": "LABEL org.opencontainers.image.ref.name=ubuntu",
+          "inst_set_time_bucket": "2024-04-17T23:15:00+05:30",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "LABEL",
+          "time": "2024-04-17T17:56:33Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "org.opencontainers.image.version=22.04",
+          "command_snippet": "LABEL org.opencontainers.image.version=22.04",
+          "command_all": "LABEL org.opencontainers.image.version=22.04",
+          "inst_set_time_bucket": "2024-04-17T23:15:00+05:30",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "ADD",
+          "time": "2024-04-17T17:56:35Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 77863373,
+          "size_human": "78 MB",
+          "params": "file:aa631666e3d7f8925e1308c15b2b63b5649db2cfcb079cba8218af98a5966923 in /",
+          "command_snippet": "ADD file:aa631666e3d7f8925e1308c15b2b63b5649...",
+          "command_all": "ADD file:aa631666e3d7f8925e1308c15b2b63b5649db2cfcb079cba8218af98a5966923 /",
+          "target": "/",
+          "source_type": "file",
+          "inst_set_time_bucket": "2024-04-17T23:15:00+05:30",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "CMD",
+          "time": "2024-04-17T17:56:35Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"/bin/bash\"]\n",
+          "command_snippet": "CMD [\"/bin/bash\"]\n",
+          "command_all": "CMD [\"/bin/bash\"]\n",
+          "inst_set_time_bucket": "2024-04-17T23:15:00+05:30",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "SHELL",
+          "time": "2024-04-26T07:04:32Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[/bin/bash -c]",
+          "command_snippet": "SHELL [/bin/bash -c]",
+          "command_all": "SHELL [/bin/bash -c]",
+          "comment": "buildkit.dockerfile.v0",
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-04-26T12:30:00+05:30",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "COPY",
+          "time": "2024-04-26T07:04:32Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 12543117,
+          "size_human": "12 MB",
+          "params": "/src/target/wasm32-wasi/release/wasmedge_hyper_server_tflite.wasm /server.wasm",
+          "command_snippet": "COPY /src/target/wasm32-wasi/release/wasmedg...",
+          "command_all": "COPY /src/target/wasm32-wasi/release/wasmedge_hyper_server_tflite.wasm /server.wasm",
+          "comment": "buildkit.dockerfile.v0",
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-04-26T12:30:00+05:30",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "RUN",
+          "time": "2024-04-26T07:05:00Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 155981838,
+          "size_human": "156 MB",
+          "command_snippet": "RUN [\"/bin/bash\",\"-c\",\"apt-get\",\"update\",\"&&...",
+          "command_all": "RUN [\"/bin/bash\",\"-c\",\"apt-get\",\"update\",\"&&\",\"apt-get\",\"install\",\"-y\",\"curl\",\"git\",\"python3\"]",
+          "system_commands": [
+            "[\"/bin/bash\",\"-c\",\"apt-get\",\"update\",\"",
+            "\",\"apt-get\",\"install\",\"-y\",\"curl\",\"git\",\"python3\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0",
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-04-26T12:30:00+05:30",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "RUN",
+          "time": "2024-04-26T07:05:15Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 307181449,
+          "size_human": "307 MB",
+          "command_snippet": "RUN [\"/bin/bash\",\"-c\",\"curl\",\"-sSf\",\"https:/...",
+          "command_all": "RUN [\"/bin/bash\",\"-c\",\"curl\",\"-sSf\",\"https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh\",\"|\",\"bash\",\"-s\",\"--\",\"--plugins\",\"wasi_nn-tensorflowlite\"]",
+          "system_commands": [
+            "[\"/bin/bash\",\"-c\",\"curl\",\"-sSf\",\"https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh\",\"|\",\"bash\",\"-s\",\"--\",\"--plugins\",\"wasi_nn-tensorflowlite\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0",
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-04-26T12:30:00+05:30",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "CMD",
+          "time": "2024-04-26T07:05:15Z",
+          "is_last_instruction": true,
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"bash\",\"-c\",\"/root/.wasmedge/bin/wasmedge server.wasm\"]\n",
+          "command_snippet": "CMD [\"bash\",\"-c\",\"/root/.wasmedge/bin/wasmed...",
+          "command_all": "CMD [\"bash\",\"-c\",\"/root/.wasmedge/bin/wasmedge server.wasm\"]\n",
+          "comment": "buildkit.dockerfile.v0",
+          "raw_tags": [
+            "wasmedge_tflite:latest",
+            "scramjet911/wasmedge-tflite:latest"
+          ],
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-04-26T12:30:00+05:30",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 0
+        }
+      ]
+    }
+  ],
+  "image_created": false,
+  "image_build_engine": "internal"
+}

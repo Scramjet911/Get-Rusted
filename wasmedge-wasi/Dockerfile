@@ -17,13 +17,14 @@ COPY src ./src
 # Build the Wasm binary
 RUN cargo build --target wasm32-wasi --release
 
-FROM --platform=$BUILDPLATFORM ubuntu:22.04
+FROM --platform=$BUILDPLATFORM wasmedge/slim-tf:0.12.1
 
 SHELL ["/bin/bash", "-c"]
 COPY --link --from=build /src/target/wasm32-wasi/release/wasmedge_hyper_server_tflite.wasm /server.wasm
-RUN apt-get update && \
-    apt-get install -y \
-    curl git python3
-RUN curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash -s -- --plugins wasi_nn-tensorflowlite
+ENTRYPOINT [ "wasmedge", "/server.wasm" ]
+# RUN apt-get update && \
+#     apt-get install -y \
+#     curl git python3
+# RUN curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash -s -- --plugins wasi_nn-tensorflowlite
 
-CMD ["bash", "-c", "/root/.wasmedge/bin/wasmedge server.wasm"]
+# CMD ["bash", "-c", "/root/.wasmedge/bin/wasmedge server.wasm"]
