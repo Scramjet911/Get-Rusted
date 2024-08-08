@@ -44,3 +44,11 @@ pub unsafe extern "C" fn Java_com_example_calc_HandleOperationKt_mul(
 ) -> jdouble {
     j_num1 * j_num2
 }
+
+#[no_mangle]
+pub unsafe extern "C" fn Java_com_example_calc_HandleOperationKt_modImage(
+    env: JNIEnv,
+    _: JObject,
+) -> jdouble {
+    j_num1 * j_num2
+}

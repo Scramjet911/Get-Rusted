@@ -17,7 +17,7 @@ pub fn start() {
 }
 
 /// Mnist structure that corresponds to JavaScript class.
-/// See:[exporting-rust-struct](https://rustwasm.github.io/wasm-bindgen/contributing/design/exporting-rust-struct.html)
+/// See:[exporting-rust_calc-struct](https://rustwasm.github.io/wasm-bindgen/contributing/design/exporting-rust-struct.html)
 #[cfg_attr(target_family = "wasm", wasm_bindgen)]
 pub struct Mnist {
     model: Option<Model<Backend>>,
