@@ -1,5 +1,6 @@
 package com.example.calc
 
+import com.example.calc.ImageProcessorScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,7 +10,7 @@ import com.example.calc.ui.theme.CalculatorTheme
 
 class MainActivity : ComponentActivity() {
     init {
-        System.loadLibrary("calculator")
+        System.loadLibrary("mnist_custom")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CalculatorTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
-                    CalculatorScreen()
+                    ImageProcessorScreen()
                 }
             }
         }
