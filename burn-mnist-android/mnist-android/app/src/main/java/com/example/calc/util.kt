@@ -18,16 +18,11 @@ import java.nio.ByteBuffer
 fun uriToByteArray(context: Context, uri: Uri): Triple<ByteArray?, Int?, Int?> {
     val inputStream = context.contentResolver.openInputStream(uri) ?: return Triple(null,null,null)
     val byteArray = inputStream.readBytes()
-//    MediaStore.Images.Media.getBitmap(context.contentResolver, uri)
-//    val options = BitmapFactory.Options().apply {
-//        inJustDecodeBounds = true
-//    }
     val imageMap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
-
-
 
     val reducedMap = Bitmap.createScaledBitmap(imageMap,28, 28,false)
 
+//    Initially converting to grayscale bitmap, then realized that I need a byte/integer array with grayscale values so converted to that directly.
 //    val grayScaleMap = convertToGrayscale8Bit(context, reducedMap)
 
 //    val bitFile = File(context.getExternalFilesDir(null),"Safe2.png")
@@ -43,7 +38,6 @@ fun uriToByteArray(context: Context, uri: Uri): Triple<ByteArray?, Int?, Int?> {
 //    val pixelArray = pixelBuffer.array()
 
     val pixelArray = convertToGrayscaleArray(reducedMap)
-//    Log.d("calc", "uriToByteArray: ${pixelArray.()}")
     return Triple(pixelArray, 28,28)
 }
 
@@ -51,6 +45,8 @@ fun convertToGrayscaleArray(bmp: Bitmap): ByteArray {
     // Create a mutable bitmap with the same dimensions as the original
     val width = bmp.width
     val height = bmp.height
+
+//    Made bitmap here to visualize the image array
 //    val grayscaleBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
 //    val intArray = ArrayList<Int>()
     val grayscaleArray = ByteArray(width*height)

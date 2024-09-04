@@ -11,11 +11,7 @@ pub mod model;
 
 pub use model::mnist;
 
-use jni::{
-    objects::JByteArray,
-    sys::{jint, jobject},
-    JNIEnv,
-};
+use jni::{objects::JByteArray, sys::jobject, JNIEnv};
 
 use burn::{
     backend::ndarray::NdArray,
@@ -31,8 +27,6 @@ pub unsafe extern "C" fn Java_com_example_calc_HomeKt_infer(
     env: JNIEnv,
     _: jobject,
     inputImage: JByteArray,
-    imageWidth: jint,
-    imageHeight: jint,
 ) -> i64 {
     android_logger::init_once(Config::default().with_max_level(LevelFilter::Trace));
 
