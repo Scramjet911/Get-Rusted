@@ -22,3 +22,9 @@ log = "0.4"
 
 [build-dependencies]
 burn-import = "0.13.2"
+
+[profile.release]
+opt-level = 'z'   # Optimize for size
+lto = true        # Enable link-time optimization
+codegen-units = 1 # Reduce number of codegen units to increase optimizations
+strip = true
